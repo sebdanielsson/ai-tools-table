@@ -109,7 +109,10 @@
                 { avatar: 'img/tabnine.webp', Name: "Tabnine", Plan: "Enterprise", Company: "Tabnine", "Country": "Israel", "Hosting": "On-Prem or SaaS", "Data Center": "None", "Data Retention": "No", "Prompts & Responses": "No", "Non-permissively licensed code": "No", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "Yes", "IDE Chat": "Yes", "IDE Inline Chat": "No", "VSCode": "Yes", "Visual Studio": "Yes", "Rider": "Yes", "Eclipse": "Yes" },
                 { avatar: 'img/chatgpt.webp', Name: "ChatGPT", Plan: "Team, Enterprise, API", Company: "OpenAI", "Country": "US", "Hosting": "SaaS", "Data Center": "US", "Data Retention": "Yes (1-3 months)", "Prompts & Responses": "No", "Non-permissively licensed code": "Yes", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "No", "IDE Chat": "No", "IDE Inline Chat": "No", "VSCode": "No", "Visual Studio": "No", "Rider": "No", "Eclipse": "No" }
             ],
-
+            defaultColDef: {
+                wrapHeaderText: true,
+                autoHeaderHeight: true,
+            },
             columnDefs: [
                 {
                     headerName: 'Product',
@@ -118,52 +121,52 @@
                             field: 'Name',
                             pinned: true,
                             checkboxSelection: true,
-                            wrapHeaderText: true, width: '200px',
+                            width: '200px',
                             cellRenderer: params => {
                                 return `<div style="display: flex; align-items: center; height: 100%;">
-                            <img src="${params.data.avatar}" alt="${params.data.Name}" style="wrapHeaderText: true, width:32px; height: 32px; border-radius: 22.5%; margin-right: 0.5rem;">
+                            <img src="${params.data.avatar}" alt="${params.data.Name}" style="width:32px; height: 32px; border-radius: 22.5%; margin-right: 0.5rem;">
                             <span>${params.data.Name}</span>
                         </div>`;
                             }
                         },
-                        { field: "Plan", wrapHeaderText: true, width: '120px' },
-                        { field: "Company", wrapHeaderText: true, width: '120px' }
+                        { field: "Plan", width: '120px' },
+                        { field: "Company", width: '120px' }
                     ]
                 },
                 {
                     headerName: 'Privacy & Security',
                     children: [
-                        { field: "Country", wrapHeaderText: true, width: '90px' },
-                        { field: "Hosting", wrapHeaderText: true, width: '200px' },
-                        { field: "Data Center", wrapHeaderText: true, width: '130px', filter: true },
-                        { field: "Data Retention", wrapHeaderText: true, width: '150px', filter: true },
+                        { field: "Country", width: '90px' },
+                        { field: "Hosting", width: '200px' },
+                        { field: "Data Center", width: '130px', filter: true },
+                        { field: "Data Retention", width: '150px', filter: true },
 
                     ]
                 },
                 {
                     headerName: 'Model Training',
                     children: [
-                        { field: "Prompts & Responses", wrapHeaderText: true, width: '130px', filter: true },
-                        { field: "Non-permissively licensed code", wrapHeaderText: true, width: '180px', filter: true },
+                        { field: "Prompts & Responses", width: '130px', filter: true },
+                        { field: "Non-permissively licensed code", width: '180px', filter: true },
                     ]
                 },
                 {
                     headerName: 'Features',
                     children: [
-                        { field: "Suggestions for new and existing code", wrapHeaderText: true, wrapHeaderText: true, width: '200px', filter: true },
-                        { field: "Explanations", wrapHeaderText: true, width: '140px', filter: true },
-                        { field: "IDE Autocomplete", wrapHeaderText: true, width: '175px', filter: true },
-                        { field: "IDE Chat", wrapHeaderText: true, width: '110px', filter: true },
-                        { field: "IDE Inline Chat", wrapHeaderText: true, width: '150px', filter: true },
+                        { field: "Suggestions for new and existing code", width: '200px', filter: true },
+                        { field: "Explanations", width: '140px', filter: true },
+                        { field: "IDE Autocomplete", width: '175px', filter: true },
+                        { field: "IDE Chat", width: '110px', filter: true },
+                        { field: "IDE Inline Chat", width: '150px', filter: true },
                     ]
                 },
                 {
                     headerName: 'IDE Extensions',
                     children: [
-                        { field: "VSCode", wrapHeaderText: true, width: '110px', filter: true },
-                        { field: "Visual Studio", wrapHeaderText: true, width: '140px', filter: true },
-                        { field: "Rider", wrapHeaderText: true, width: '90px', filter: true },
-                        { field: "Eclipse", wrapHeaderText: true, width: '100px', filter: true },
+                        { field: "VSCode", width: '110px', filter: true },
+                        { field: "Visual Studio", width: '140px', filter: true },
+                        { field: "Rider", width: '90px', filter: true },
+                        { field: "Eclipse", width: '100px', filter: true },
                     ]
                 }
             ]
