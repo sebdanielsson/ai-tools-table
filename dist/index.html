@@ -100,14 +100,14 @@
             rowMultiSelectWithClick: true,
             suppressRowClickSelection: true,
             rowData: [
-                { avatar: 'img/codewhisperer.webp', Name: "CodeWhisperer", Plan: "Professional", Company: "Amazon", "Country": "US", "Hosting": "SaaS", "Data Center": "US", "Data Retention": "No", "Prompts & Responses": "No", "Non-permissively licensed code": "Unknown", "Suggestions for new and existing code": "No", "Explanations": "No", "IDE Autocomplete": "Yes", "IDE Chat": "No", "IDE Inline Chat": "No", "VSCode": "Yes", "Visual Studio": "Yes (Preview)", "Rider": "Yes", "Eclipse": "No" },
-                { avatar: 'img/github-copilot.webp', Name: "Copilot", Plan: "Business", Company: "GitHub", "Country": "US", "Hosting": "SaaS", "Data Center": "Global", "Data Retention": "No", "Prompts & Responses": "No", "Non-permissively licensed code": "Yes¹", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "Yes", "IDE Chat": "Yes", "IDE Inline Chat": "Yes", "VSCode": "Yes", "Visual Studio": "Yes", "Rider": "Yes", "Eclipse": "No" },
-                { avatar: 'img/codium.webp', Name: "CodiumAI", Plan: "Enterprise", Company: "CodiumAI", "Country": "Israel", "Hosting": "On-Prem (Model in cloud)", "Data Center": "Global", "Data Retention": "48 hours (Zero retention available)", "Prompts & Responses": "No", "Non-permissively licensed code": "Yes (OpenAI GPT-4)", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "Yes", "IDE Chat": "Yes", "IDE Inline Chat": "No", "VSCode": "Yes", "Visual Studio": "No", "Rider": "Yes", "Eclipse": "No" },
-                { avatar: 'img/codeium.webp', Name: "Codeium", Plan: "Enterprise", Company: "Codeium", "Country": "US", "Hosting": "On-Prem or SaaS", "Data Center": "None", "Data Retention": "No", "Prompts & Responses": "No", "Non-permissively licensed code": "No", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "Yes", "IDE Chat": "Yes", "IDE Inline Chat": "Yes", "VSCode": "Yes", "Visual Studio": "Yes", "Rider": "Yes", "Eclipse": "Yes" },
-                { avatar: 'img/gemini.webp', Name: "Gemini", Plan: "Enterprise", Company: "Google", "Country": "US", "Hosting": "SaaS", "Data Center": "Global", "Data Retention": "3 years", "Prompts & Responses": "No", "Non-permissively licensed code": "No²", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "Yes", "IDE Chat": "No", "IDE Inline Chat": "No", "VSCode": "Yes", "Visual Studio": "No", "Rider": "Yes", "Eclipse": "No" },
-                { avatar: 'img/cody.svg', Name: "Cody", Plan: "Enterprise", Company: "Sourcegraph", "Country": "US", "Hosting": "On-Prem (Model in cloud)", "Data Center": "Global", "Data Retention": "No (Azure OpenAI, OpenAI, Amazon Bedrock)", "Prompts & Responses": "No", "Non-permissively licensed code": "Yes (Azure OpenAI, OpenAI, Amazon Bedrock)", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "Yes", "IDE Chat": "Yes", "IDE Inline Chat": "Yes", "VSCode": "Yes", "Visual Studio": "No", "Rider": "Yes", "Eclipse": "No" },
-                { avatar: 'img/tabnine.webp', Name: "Tabnine", Plan: "Enterprise", Company: "Tabnine", "Country": "Israel", "Hosting": "On-Prem or SaaS", "Data Center": "None", "Data Retention": "No", "Prompts & Responses": "No", "Non-permissively licensed code": "No", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "Yes", "IDE Chat": "Yes", "IDE Inline Chat": "No", "VSCode": "Yes", "Visual Studio": "Yes", "Rider": "Yes", "Eclipse": "Yes" },
-                { avatar: 'img/chatgpt.webp', Name: "ChatGPT", Plan: "Team, Enterprise, API", Company: "OpenAI", "Country": "US", "Hosting": "SaaS", "Data Center": "US", "Data Retention": "Yes (1-3 months)", "Prompts & Responses": "No", "Non-permissively licensed code": "Yes", "Suggestions for new and existing code": "Yes", "Explanations": "Yes", "IDE Autocomplete": "No", "IDE Chat": "No", "IDE Inline Chat": "No", "VSCode": "No", "Visual Studio": "No", "Rider": "No", "Eclipse": "No" }
+                { avatar: 'img/codewhisperer.webp', Name: "CodeWhisperer", Plan: "Professional", Company: "Amazon", "Country": "US", "Hosting": "SaaS", "Data Center": "US", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": "Unknown", "Suggestions for new and existing code": false, "Explanations": false, "IDE Autocomplete": true, "IDE Chat": false, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": false },
+                { avatar: 'img/github-copilot.webp', Name: "Copilot", Plan: "Business", Company: "GitHub", "Country": "US", "Hosting": "SaaS", "Data Center": "Global", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": "Yes¹", "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": true, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": false },
+                { avatar: 'img/codium.webp', Name: "CodiumAI", Plan: "Enterprise", Company: "CodiumAI", "Country": "Israel", "Hosting": "On-Prem (Model in cloud)", "Data Center": "Global", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": false, "Rider": true, "Eclipse": false },
+                { avatar: 'img/codeium.webp', Name: "Codeium", Plan: "Enterprise", Company: "Codeium", "Country": "US", "Hosting": "On-Prem or SaaS", "Data Center": "None", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": false, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": true, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": true },
+                { avatar: 'img/gemini.webp', Name: "Gemini", Plan: "Enterprise", Company: "Google", "Country": "US", "Hosting": "SaaS", "Data Center": "Global", "Data Retention": true, "Days": 1095, "Prompts & Responses": false, "Non-permissively licensed code": "No²", "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": false, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": false, "Rider": true, "Eclipse": false },
+                { avatar: 'img/cody.svg', Name: "Cody", Plan: "Enterprise", Company: "Sourcegraph", "Country": "US", "Hosting": "On-Prem (Model in cloud)", "Data Center": "Global", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": true, "VSCode": true, "Visual Studio": false, "Rider": true, "Eclipse": false },
+                { avatar: 'img/tabnine.webp', Name: "Tabnine", Plan: "Enterprise", Company: "Tabnine", "Country": "Israel", "Hosting": "On-Prem or SaaS", "Data Center": "None", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": false, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": true },
+                { avatar: 'img/chatgpt.webp', Name: "ChatGPT", Plan: "Team, Enterprise, API", Company: "OpenAI", "Country": "US", "Hosting": "SaaS", "Data Center": "US", "Data Retention": true, "Days": 90, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": false, "IDE Chat": false, "IDE Inline Chat": false, "VSCode": false, "Visual Studio": false, "Rider": false, "Eclipse": false }
             ],
             defaultColDef: {
                 wrapHeaderText: true,
@@ -119,7 +119,7 @@
                     children: [
                         {
                             field: 'Name',
-                            pinned: true,
+                            pinned: window.innerWidth >= 800 ? true : undefined,
                             checkboxSelection: true,
                             width: '200px',
                             cellRenderer: params => {
@@ -136,28 +136,29 @@
                 {
                     headerName: 'Privacy & Security',
                     children: [
-                        { field: "Country", width: '90px' },
-                        { field: "Hosting", width: '200px' },
-                        { field: "Data Center", width: '130px', filter: true },
+                        { field: "Country", columnGroupShow: "open", width: '90px' },
+                        { field: "Hosting", columnGroupShow: "open", width: '200px' },
+                        { field: "Data Center", columnGroupShow: "open", width: '130px', filter: true },
                         { field: "Data Retention", width: '150px', filter: true },
+                        { field: "Days", width: '90px', filter: true }
 
                     ]
                 },
                 {
                     headerName: 'Model Training',
                     children: [
-                        { field: "Prompts & Responses", width: '130px', filter: true },
-                        { field: "Non-permissively licensed code", width: '180px', filter: true },
+                        { field: "Prompts & Responses", width: '150px', filter: true },
+                        { field: "Non-permissively licensed code", columnGroupShow: "open", width: '180px', filter: true },
                     ]
                 },
                 {
                     headerName: 'Features',
                     children: [
-                        { field: "Suggestions for new and existing code", width: '200px', filter: true },
+                        { field: "Suggestions for new and existing code", width: '160px', filter: true },
                         { field: "Explanations", width: '140px', filter: true },
-                        { field: "IDE Autocomplete", width: '175px', filter: true },
-                        { field: "IDE Chat", width: '110px', filter: true },
-                        { field: "IDE Inline Chat", width: '150px', filter: true },
+                        { field: "IDE Autocomplete", columnGroupShow: "open", width: '175px', filter: true },
+                        { field: "IDE Chat", columnGroupShow: "open", width: '110px', filter: true },
+                        { field: "IDE Inline Chat", columnGroupShow: "open", width: '150px', filter: true },
                     ]
                 },
                 {
@@ -165,8 +166,8 @@
                     children: [
                         { field: "VSCode", width: '110px', filter: true },
                         { field: "Visual Studio", width: '140px', filter: true },
-                        { field: "Rider", width: '90px', filter: true },
-                        { field: "Eclipse", width: '100px', filter: true },
+                        { field: "Rider", columnGroupShow: "open", width: '90px', filter: true },
+                        { field: "Eclipse", columnGroupShow: "open", width: '100px', filter: true },
                     ]
                 }
             ]
