@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Tools Spreadsheet</title>
+    <meta name="description" content="A comparison of AI tools for developers">
     <link rel="prefetch" href="img/codewhisperer.webp">
     <link rel="prefetch" href="img/github-copilot.webp">
     <link rel="prefetch" href="img/codium.webp">
@@ -103,7 +104,7 @@
                     checkboxSelection: true,
                     cellRenderer: params => {
                         return `<div style="display: flex; align-items: center; height: 100%;">
-                            <img src="${params.data.avatar}" style="width: 32px; height: 32px; border-radius: 22.5%; margin-right: 0.5rem;">
+                            <img src="${params.data.avatar}" alt="${params.data.Name}" style="width: 32px; height: 32px; border-radius: 22.5%; margin-right: 0.5rem;">
                             <span>${params.data.Name}</span>
                         </div>`;
                     }
