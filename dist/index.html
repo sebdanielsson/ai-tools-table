@@ -61,6 +61,15 @@
             margin: 0;
         }
 
+        .title {
+            color: #000000;
+        }
+
+        .title:hover {
+            color: #B60202;
+            text-decoration: none;
+        }
+
         a {
             text-decoration: none;
             color: #B60202;
@@ -121,7 +130,9 @@
     </div>
     </div>
     <div class="main">
-        <h1>AI Tools Comparison</h1>
+        <a href="/" class="title">
+            <h1>AI Tools Comparison</h1>
+        </a>
         <div id="table" class="ag-theme-quartz"></div>
     </div>
     <div class="footer">
@@ -217,7 +228,28 @@
         };
 
         const table = document.querySelector('#table');
-        agGrid.createGrid(table, gridOptions);
+        const api = agGrid.createGrid(table, gridOptions);
+
+        // Save filter state to url
+        const saveFilterStateToUrl = () => {
+            const filterState = api.getFilterModel();
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('filterState', JSON.stringify(filterState));
+            window.history.replaceState(null, '', `${window.location.pathname}?${urlParams}`);
+        };
+
+        // Load filter state from url
+        const loadFilterStateFromUrl = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filterState = urlParams.get('filterState');
+            if (filterState) {
+                api.setFilterModel(JSON.parse(filterState));
+            }
+        };
+
+        // Call the functions to load the filter state from the URL and save the filter state to the URL
+        loadFilterStateFromUrl();
+        api.addEventListener('filterChanged', saveFilterStateToUrl);
     </script>
 </body>
 
