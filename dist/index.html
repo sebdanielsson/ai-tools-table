@@ -94,6 +94,12 @@
             color: #000000;
         }
 
+        input:disabled {
+            cursor: default;
+            background-color: #B60202;
+            color: #000000;
+        }
+
         .main {
             display: flex;
             flex-direction: column;
@@ -167,14 +173,14 @@
             rowMultiSelectWithClick: true,
             suppressRowClickSelection: true,
             rowData: [
-                { avatar: 'img/codewhisperer.webp', Name: "CodeWhisperer", Plan: "Professional", Company: "Amazon", "Country": "US", "Hosting": "SaaS", "Data Center": "US", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": false, "Explanations": false, "IDE Autocomplete": true, "IDE Chat": false, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": false },
-                { avatar: 'img/github-copilot.webp', Name: "Copilot", Plan: "Business", Company: "GitHub", "Country": "US", "Hosting": "SaaS", "Data Center": "Global", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": true, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": false },
-                { avatar: 'img/codium.webp', Name: "CodiumAI", Plan: "Enterprise", Company: "CodiumAI", "Country": "Israel", "Hosting": "On-Prem (Model in cloud)", "Data Center": "Global", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": false, "Rider": true, "Eclipse": false },
-                { avatar: 'img/codeium.webp', Name: "Codeium", Plan: "Enterprise", Company: "Codeium", "Country": "US", "Hosting": "On-Prem or SaaS", "Data Center": "None", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": false, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": true, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": true },
-                { avatar: 'img/gemini.webp', Name: "Gemini", Plan: "Enterprise", Company: "Google", "Country": "US", "Hosting": "SaaS", "Data Center": "Global", "Data Retention": true, "Days": 1095, "Prompts & Responses": false, "Non-permissively licensed code": false, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": false, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": false, "Rider": true, "Eclipse": false },
-                { avatar: 'img/cody.svg', Name: "Cody", Plan: "Enterprise", Company: "Sourcegraph", "Country": "US", "Hosting": "On-Prem (Model in cloud)", "Data Center": "Global", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": true, "VSCode": true, "Visual Studio": false, "Rider": true, "Eclipse": false },
-                { avatar: 'img/tabnine.webp', Name: "Tabnine", Plan: "Enterprise", Company: "Tabnine", "Country": "Israel", "Hosting": "On-Prem or SaaS", "Data Center": "None", "Data Retention": false, "Days": 0, "Prompts & Responses": false, "Non-permissively licensed code": false, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": true, "IDE Chat": true, "IDE Inline Chat": false, "VSCode": true, "Visual Studio": true, "Rider": true, "Eclipse": true },
-                { avatar: 'img/chatgpt.webp', Name: "ChatGPT", Plan: "Team, Enterprise, API", Company: "OpenAI", "Country": "US", "Hosting": "SaaS", "Data Center": "US", "Data Retention": true, "Days": 90, "Prompts & Responses": false, "Non-permissively licensed code": true, "Suggestions for new and existing code": true, "Explanations": true, "IDE Autocomplete": false, "IDE Chat": false, "IDE Inline Chat": false, "VSCode": false, "Visual Studio": false, "Rider": false, "Eclipse": false }
+                { avatar: 'img/codewhisperer.webp', Name: "CodeWhisperer", Plan: "Professional", Company: "Amazon", "Country": "US", "Hosting": "SaaS", "DataCenter": "US", "DataRetentionDays": 0, "PromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": false, "Explanations": false, "IDEAutocomplete": true, "IDEChat": false, "IDEInlineChat": false, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": false },
+                { avatar: 'img/github-copilot.webp', Name: "Copilot", Plan: "Business", Company: "GitHub", "Country": "US", "Hosting": "SaaS", "DataCenter": "Global", "DataRetentionDays": 0, "PromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": true, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": false },
+                { avatar: 'img/codium.webp', Name: "CodiumAI", Plan: "Enterprise", Company: "CodiumAI", "Country": "Israel", "Hosting": "On-Prem (Model in cloud)", "DataCenter": "Global", "DataRetentionDays": 0, "PromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": false, "VSCode": true, "VisualStudio": false, "Rider": true, "Eclipse": false },
+                { avatar: 'img/codeium.webp', Name: "Codeium", Plan: "Enterprise", Company: "Codeium", "Country": "US", "Hosting": "On-Prem or SaaS", "DataCenter": "None", "DataRetentionDays": 0, "PromptsResponses": false, "Non-permissivelyLicensedCode": false, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": true, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": true },
+                { avatar: 'img/gemini.webp', Name: "Gemini", Plan: "Enterprise", Company: "Google", "Country": "US", "Hosting": "SaaS", "DataCenter": "Global", "DataRetentionDays": 1095, "PromptsResponses": false, "Non-permissivelyLicensedCode": false, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": false, "IDEInlineChat": false, "VSCode": true, "VisualStudio": false, "Rider": true, "Eclipse": false },
+                { avatar: 'img/cody.svg', Name: "Cody", Plan: "Enterprise", Company: "Sourcegraph", "Country": "US", "Hosting": "On-Prem (Model in cloud)", "DataCenter": "Global", "DataRetentionDays": 0, "PromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": true, "VSCode": true, "VisualStudio": false, "Rider": true, "Eclipse": false },
+                { avatar: 'img/tabnine.webp', Name: "Tabnine", Plan: "Enterprise", Company: "Tabnine", "Country": "Israel", "Hosting": "On-Prem or SaaS", "DataCenter": "None", "DataRetentionDays": 0, "PromptsResponses": false, "Non-permissivelyLicensedCode": false, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": false, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": true },
+                { avatar: 'img/chatgpt.webp', Name: "ChatGPT", Plan: "Team, Enterprise, API", Company: "OpenAI", "Country": "US", "Hosting": "SaaS", "DataCenter": "US", "DataRetentionDays": 90, "PromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": false, "IDEChat": false, "IDEInlineChat": false, "VSCode": false, "VisualStudio": false, "Rider": false, "Eclipse": false }
             ],
             defaultColDef: {
                 wrapHeaderText: true,
@@ -205,34 +211,33 @@
                     children: [
                         { field: "Country", columnGroupShow: "open", width: '90px' },
                         { field: "Hosting", columnGroupShow: "open", width: '200px' },
-                        { field: "Data Center", columnGroupShow: "open", width: '130px', filter: true },
-                        { field: "Data Retention", width: '150px', filter: true },
-                        { field: "Days", width: '90px', filter: true }
+                        { field: "DataCenter", columnGroupShow: "open", width: '130px', filter: true },
+                        { headerName: 'Data Retention (Days)', field: "DataRetentionDays", width: '175px', filter: true }
 
                     ]
                 },
                 {
                     headerName: 'Model Training',
                     children: [
-                        { field: "Prompts & Responses", width: '150px', filter: true },
-                        { field: "Non-permissively licensed code", columnGroupShow: "open", width: '180px', filter: true },
+                        { field: "PromptsResponses", width: '150px', filter: true },
+                        { field: "Non-permissivelyLicensedCode", columnGroupShow: "open", width: '180px', filter: true },
                     ]
                 },
                 {
                     headerName: 'Features',
                     children: [
-                        { field: "Suggestions for new and existing code", width: '160px', filter: true },
+                        { field: "SuggestionsForNewAndExistingCode", width: '160px', filter: true },
                         { field: "Explanations", width: '140px', filter: true },
-                        { field: "IDE Autocomplete", columnGroupShow: "open", width: '175px', filter: true },
-                        { field: "IDE Chat", columnGroupShow: "open", width: '110px', filter: true },
-                        { field: "IDE Inline Chat", columnGroupShow: "open", width: '150px', filter: true },
+                        { field: "IDEAutocomplete", columnGroupShow: "open", width: '175px', filter: true },
+                        { field: "IDEChat", columnGroupShow: "open", width: '110px', filter: true },
+                        { field: "IDEInlineChat", columnGroupShow: "open", width: '150px', filter: true },
                     ]
                 },
                 {
                     headerName: 'IDE Extensions',
                     children: [
                         { field: "VSCode", width: '110px', filter: true },
-                        { field: "Visual Studio", width: '140px', filter: true },
+                        { field: "VisualStudio", width: '140px', filter: true },
                         { field: "Rider", columnGroupShow: "open", width: '90px', filter: true },
                         { field: "Eclipse", columnGroupShow: "open", width: '100px', filter: true },
                     ]
