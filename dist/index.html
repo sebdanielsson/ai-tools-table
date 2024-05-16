@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Tools Spreadsheet</title>
     <meta name="description" content="A comparison of AI tools for developers">
+    <link rel="stylesheet" href="style.css">
     <link rel="prefetch" href="img/codewhisperer.webp">
     <link rel="prefetch" href="img/github-copilot.webp">
     <link rel="prefetch" href="img/codium.webp">
@@ -14,117 +15,6 @@
     <link rel="prefetch" href="img/cody.svg">
     <link rel="prefetch" href="img/tabnine.webp">
     <link rel="prefetch" href="img/chatgpt.webp">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            max-height: 100dvh;
-            margin: 0;
-            font-family: system-ui, sans-serif;
-            background: #ffffff;
-            color: #101010;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .theme-toggle-btn {
-            position: absolute;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: inherit;
-            cursor: pointer;
-            font-family: inherit;
-            padding: 0;
-            border-radius: 50%;
-            height: 1.5rem;
-            width: 1.5rem;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body.dark {
-            background: #1F2936;
-            color: #ffffff;
-        }
-
-        body.dark a {
-            color: #bcd1e6;
-        }
-
-        body.dark a:hover {
-            color: #ffffff;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding-top: 1rem;
-            position: relative;
-        }
-
-        h1 {
-            text-align: center;
-            margin: 0;
-        }
-
-        .title {
-            color: #000000;
-        }
-
-        .title h1 {
-            display: inline;
-        }
-
-        .title:hover {
-            color: #B60202;
-            text-decoration: none;
-        }
-
-        a {
-            text-decoration: none;
-            color: #B60202;
-        }
-
-        a:hover {
-            text-decoration: underline;
-            color: #000000;
-        }
-
-        .main {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin: 0 1rem;
-            gap: 1rem;
-        }
-
-        .footer {
-            font-size: 0.75rem;
-            text-align: center;
-            padding: 0 1rem 1rem 1rem;
-        }
-
-        .ag-body-viewport-wrapper.ag-layout-normal {
-            overflow-x: scroll;
-            overflow-y: scroll;
-        }
-
-        ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, .5);
-            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        }
-    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/31.3.2/ag-grid-community.min.js"
         integrity="sha512-e+7R705ihsDLzL0wd0VcqCH6K008RSA55CFpcaGtcpHBFSu1SK/sdkNoI9ZjqcBBau8mvq4TT9r2PudMXydKJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -136,7 +26,7 @@
             <h1>AI Tools Comparison</h1>
         </a>
         <button class="theme-toggle-btn" type="button"
-            onclick="document.body.classList.toggle('dark'); document.querySelector('#table').classList.toggle('ag-theme-quartz-dark'); document.querySelector('#table').classList.toggle('ag-theme-quartz')"
+            onclick="document.body.classList.toggle('dark'); document.getElementById('table').classList.toggle('ag-theme-quartz-dark'); document.getElementById('table').classList.toggle('ag-theme-quartz')"
             title="Switch between dark and light mode" aria-label="Switch between dark and light mode">
             <svg viewBox="0 0 24 24">
                 <path fill="currentColor"
@@ -146,6 +36,10 @@
         </button>
     </div>
     <div class="main">
+        <div class="dataset-selector-container">
+            <select id="dataset" class="dataset" onchange="loadDataset()">
+            </select>
+        </div>
         <div id="table" class="ag-theme-quartz"></div>
     </div>
     <div class="footer">
@@ -161,108 +55,144 @@
     </div>
 
     <script>
-        const gridOptions = {
-            domLayout: "autoHeight",
-            rowSelection: "multiple",
-            rowMultiSelectWithClick: true,
-            suppressRowClickSelection: true,
-            rowData: [
-                { avatar: 'img/codewhisperer.webp', Name: "CodeWhisperer", Plan: "Professional", Company: "Amazon", "Country": "US", "Hosting": "SaaS", "DataCenter": "US", "DataRetentionDays": 0, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": false, "Explanations": false, "IDEAutocomplete": true, "IDEChat": false, "IDEInlineChat": false, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": false },
-                { avatar: 'img/github-copilot.webp', Name: "Copilot", Plan: "Business", Company: "GitHub", "Country": "US", "Hosting": "SaaS", "DataCenter": "Global", "DataRetentionDays": 0, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": true, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": false },
-                { avatar: 'img/codium.webp', Name: "Codiumate", Plan: "Enterprise", Company: "CodiumAI", "Country": "Israel", "Hosting": "On-Prem (Model in cloud)", "DataCenter": "Global", "DataRetentionDays": 0, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": false, "VSCode": true, "VisualStudio": false, "Rider": true, "Eclipse": false },
-                { avatar: 'img/codeium.webp', Name: "Codeium", Plan: "Enterprise", Company: "Codeium", "Country": "US", "Hosting": "On-Prem or SaaS", "DataCenter": "None", "DataRetentionDays": 0, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": false, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": true, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": true },
-                { avatar: 'img/gemini.webp', Name: "Gemini", Plan: "Enterprise", Company: "Google", "Country": "US", "Hosting": "SaaS", "DataCenter": "Global", "DataRetentionDays": 1095, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": false, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": false, "IDEInlineChat": false, "VSCode": true, "VisualStudio": false, "Rider": true, "Eclipse": false },
-                { avatar: 'img/cody.svg', Name: "Cody", Plan: "Enterprise", Company: "Sourcegraph", "Country": "US", "Hosting": "On-Prem (Model in cloud)", "DataCenter": "Global", "DataRetentionDays": 0, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": true, "VSCode": true, "VisualStudio": false, "Rider": true, "Eclipse": false },
-                { avatar: 'img/tabnine.webp', Name: "Tabnine", Plan: "Enterprise", Company: "Tabnine", "Country": "Israel", "Hosting": "On-Prem or SaaS", "DataCenter": "None", "DataRetentionDays": 0, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": false, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": true, "IDEChat": true, "IDEInlineChat": false, "VSCode": true, "VisualStudio": true, "Rider": true, "Eclipse": true },
-                { avatar: 'img/chatgpt.webp', Name: "ChatGPT", Plan: "Team, Enterprise, API", Company: "OpenAI", "Country": "US", "Hosting": "SaaS", "DataCenter": "US", "DataRetentionDays": 90, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": false, "IDEChat": false, "IDEInlineChat": false, "VSCode": false, "VisualStudio": false, "Rider": false, "Eclipse": false },
-                { avatar: 'img/claude.webp', Name: "Claude", Plan: "Team", Company: "Anthropic", "Country": "US", "Hosting": "SaaS", "DataCenter": "US", "DataRetentionDays": 30, "UserPromptsResponses": false, "Non-permissivelyLicensedCode": true, "SuggestionsForNewAndExistingCode": true, "Explanations": true, "IDEAutocomplete": false, "IDEChat": false, "IDEInlineChat": false, "VSCode": false, "VisualStudio": false, "Rider": false, "Eclipse": false },
-            ],
-            defaultColDef: {
-                wrapHeaderText: true,
-                autoHeaderHeight: true,
-            },
-            columnDefs: [
-                {
-                    headerName: 'Product',
-                    children: [
-                        {
-                            field: 'Name',
-                            /* pinned: window.innerWidth >= 800 ? true : undefined, */
-                            checkboxSelection: true,
-                            width: '200px',
-                            cellRenderer: params => {
-                                return `<div style="display: flex; align-items: center; height: 100%;">
-                            <img src="${params.data.avatar}" alt="${params.data.Name}" style="width:32px; height: 32px; border-radius: 22.5%; margin-right: 0.5rem;">
-                            <span>${params.data.Name}</span>
-                        </div>`;
-                            }
-                        },
-                        { field: "Plan", width: '120px' },
-                        { field: "Company", width: '120px' }
-                    ]
-                },
-                {
-                    headerName: 'Privacy & Security',
-                    children: [
-                        { field: "Country", columnGroupShow: "open", width: '90px' },
-                        { field: "Hosting", columnGroupShow: "open", width: '200px' },
-                        { field: "DataCenter", columnGroupShow: "open", width: '130px', filter: true },
-                        { headerName: 'Data Retention (Days)', field: "DataRetentionDays", width: '175px', filter: true }
+        document.addEventListener('DOMContentLoaded', () => {
+            const table = document.getElementById('table');
+            const datasetSelector = document.getElementById('dataset');
 
-                    ]
+            const gridOptions = {
+                domLayout: "autoHeight",
+                rowSelection: "multiple",
+                rowMultiSelectWithClick: true,
+                suppressRowClickSelection: true,
+                rowData: [],
+                defaultColDef: {
+                    wrapHeaderText: true,
+                    autoHeaderHeight: true,
                 },
-                {
-                    headerName: 'Model Training',
-                    children: [
-                        { headerName: "User Prompts & Responses", field: "UserPromptsResponses", width: '150px', filter: true },
-                        { field: "Non-permissivelyLicensedCode", columnGroupShow: "open", width: '180px', filter: true },
-                    ]
-                },
-                {
-                    headerName: 'Features',
-                    children: [
-                        { field: "SuggestionsForNewAndExistingCode", width: '160px', filter: true },
-                        { field: "Explanations", width: '140px', filter: true },
-                        { field: "IDEAutocomplete", columnGroupShow: "open", width: '175px', filter: true },
-                        { field: "IDEChat", columnGroupShow: "open", width: '110px', filter: true },
-                        { field: "IDEInlineChat", columnGroupShow: "open", width: '150px', filter: true },
-                    ]
-                },
-                {
-                    headerName: 'IDE Extensions',
-                    children: [
-                        { field: "VSCode", width: '110px', filter: true },
-                        { field: "VisualStudio", width: '140px', filter: true },
-                        { field: "Rider", columnGroupShow: "open", width: '90px', filter: true },
-                        { field: "Eclipse", columnGroupShow: "open", width: '100px', filter: true },
-                    ]
+                columnDefs: [
+                    {
+                        headerName: 'Product',
+                        children: [
+                            {
+                                field: 'Name',
+                                sort: 'asc',
+                                /* pinned: window.innerWidth >= 800 ? true : undefined, */
+                                checkboxSelection: true,
+                                width: '200px',
+                                cellRenderer: params => {
+                                    return `<div style="display: flex; align-items: center; height: 100%;">
+                        <img src="${params.data.avatar}" alt="${params.data.Name}" style="width:32px; height: 32px; border-radius: 22.5%; margin-right: 0.5rem;">
+                        <span>${params.data.Name}</span>
+                    </div>`;
+                                }
+                            },
+                            { field: "Plan", width: '120px' },
+                            { field: "Company", width: '120px' }
+                        ]
+                    },
+                    {
+                        headerName: 'Privacy & Security',
+                        children: [
+                            { field: "Country", columnGroupShow: "open", width: '90px' },
+                            { field: "Hosting", columnGroupShow: "open", width: '200px' },
+                            { field: "DataCenter", columnGroupShow: "open", width: '130px', filter: true },
+                            { headerName: 'Data Retention (Days)', field: "DataRetentionDays", width: '175px', filter: true }
+
+                        ]
+                    },
+                    {
+                        headerName: 'Model Training',
+                        children: [
+                            { headerName: "User Prompts & Responses", field: "UserPromptsResponses", width: '150px', filter: true },
+                            { field: "Non-permissivelyLicensedCode", columnGroupShow: "open", width: '180px', filter: true },
+                        ]
+                    },
+                    {
+                        headerName: 'Features',
+                        children: [
+                            { field: "SuggestionsForNewAndExistingCode", width: '160px', filter: true },
+                            { field: "Explanations", width: '140px', filter: true },
+                            { field: "IDEAutocomplete", columnGroupShow: "open", width: '175px', filter: true },
+                            { field: "IDEChat", columnGroupShow: "open", width: '110px', filter: true },
+                            { field: "IDEInlineChat", columnGroupShow: "open", width: '150px', filter: true },
+                        ]
+                    },
+                    {
+                        headerName: 'IDE Extensions',
+                        children: [
+                            { field: "VSCode", width: '110px', filter: true },
+                            { field: "VisualStudio", width: '140px', filter: true },
+                            { field: "Rider", columnGroupShow: "open", width: '90px', filter: true },
+                            { field: "Eclipse", columnGroupShow: "open", width: '100px', filter: true },
+                        ]
+                    }
+                ],
+                onGridReady: (params) => {
+                    loadDatasets();
+                    loadFilterStateFromUrl();
+                    params.api.addEventListener('filterChanged', saveFilterStateToUrl);
                 }
-            ]
-        };
+            };
 
-        const table = document.querySelector('#table');
-        const api = agGrid.createGrid(table, gridOptions);
+            const gridApi = agGrid.createGrid(table, gridOptions);
 
-        // Save filter state to url
-        const saveFilterStateToUrl = () => {
-            const filterState = api.getFilterModel();
-            const urlParams = new URLSearchParams(window.location.search);
-            urlParams.set('filterState', JSON.stringify(filterState));
-            window.history.replaceState(null, '', `${window.location.pathname}?${urlParams}`);
-        };
-
-        // Load filter state from url
-        const loadFilterStateFromUrl = () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const filterState = urlParams.get('filterState');
-            if (filterState) {
-                api.setFilterModel(JSON.parse(filterState));
+            async function loadDatasets() {
+                try {
+                    const response = await fetch('datasets.json');
+                    const datasets = await response.json();
+                    datasets.forEach(dataset => {
+                        const option = document.createElement('option');
+                        option.value = dataset;
+                        option.textContent = dataset.replace('.json', '');
+                        datasetSelector.appendChild(option);
+                    });
+                    // Set the first dataset as the default
+                    datasetSelector.value = datasets[0];
+                    loadDataset();
+                } catch (error) {
+                    console.error('Error loading datasets:', error);
+                }
             }
-        };
 
-        // Call the functions to load the filter state from the URL and save the filter state to the URL
-        loadFilterStateFromUrl();
-        api.addEventListener('filterChanged', saveFilterStateToUrl);
+            async function loadDataset() {
+                const selectedDataset = datasetSelector.value;
+
+                if (!selectedDataset) {
+                    console.log('No dataset selected');
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`datasets/${selectedDataset}`);
+                    const data = await response.json();
+
+                    // Update the grid with the new data
+                    gridApi.setGridOption('rowData', data);
+                } catch (error) {
+                    console.error('Error loading dataset:', error);
+                }
+            }
+
+            // Save filter state to url
+            const saveFilterStateToUrl = () => {
+                const filterState = gridApi.getFilterModel();
+                const urlParams = new URLSearchParams(window.location.search);
+                urlParams.set('filterState', JSON.stringify(filterState));
+                window.history.replaceState(null, '', `${window.location.pathname}?${urlParams}`);
+            };
+
+            // Load filter state from url
+            const loadFilterStateFromUrl = () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const filterState = urlParams.get('filterState');
+                if (filterState) {
+                    gridApi.setFilterModel(JSON.parse(filterState));
+                }
+            };
+
+            // Make loadDataset function available globally
+            window.loadDataset = loadDataset;
+        });
     </script>
 </body>
 
