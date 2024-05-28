@@ -6,7 +6,7 @@ A table of AI coding tools for developers. Built using [AG Grid](https://github.
 
 Datasets are stored in the `dist/datasets` folder as JSON files. To add a new dataset, create a new JSON file in this folder with the following structure:
 
-```json
+```jsonc
 [
     {
         "avatar": "relative/path/to/avatar.webp",
