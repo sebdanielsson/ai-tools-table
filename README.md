@@ -29,7 +29,7 @@ Datasets are stored in the `dist/datasets` folder as JSON files. To add a new da
         "Rider": true, // Whether the tool supports Rider
         "Eclipse": false // Whether the tool supports Eclipse
     },
-    ... More tools
+    ... // More tools
 ]
 ```
 
