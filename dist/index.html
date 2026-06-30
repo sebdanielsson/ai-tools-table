@@ -78,7 +78,7 @@
                                 sort: 'asc',
                                 /* pinned: window.innerWidth >= 800 ? true : undefined, */
                                 checkboxSelection: true,
-                                width: '200px',
+                                width: 200,
                                 cellRenderer: params => {
                                     return `<div style="display: flex; align-items: center; height: 100%;">
                         <img src="${params.data.avatar}" alt="${params.data.Name}" style="width:32px; height: 32px; border-radius: 22.5%; margin-right: 0.5rem;">
@@ -86,44 +86,44 @@
                     </div>`;
                                 }
                             },
-                            { field: "Plan", width: '120px' },
-                            { field: "Company", width: '120px' }
+                            { field: "Plan", width: 120 },
+                            { field: "Company", width: 120 }
                         ]
                     },
                     {
                         headerName: 'Privacy & Security',
                         children: [
-                            { field: "Country", columnGroupShow: "open", width: '90px' },
-                            { field: "Hosting", columnGroupShow: "open", width: '200px' },
-                            { field: "DataCenter", columnGroupShow: "open", width: '130px', filter: true },
-                            { headerName: 'Data Retention (Days)', field: "DataRetentionDays", width: '175px', filter: true }
+                            { field: "Country", columnGroupShow: "open", width: 90 },
+                            { field: "Hosting", columnGroupShow: "open", width: 200 },
+                            { field: "DataCenter", columnGroupShow: "open", width: 130, filter: true },
+                            { headerName: 'Data Retention (Days)', field: "DataRetentionDays", width: 175, filter: true }
 
                         ]
                     },
                     {
                         headerName: 'Model Training',
                         children: [
-                            { headerName: "User Prompts & Responses", field: "UserPromptsResponses", width: '150px', filter: true },
-                            { field: "Non-permissivelyLicensedCode", columnGroupShow: "open", width: '180px', filter: true },
+                            { headerName: "User Prompts & Responses", field: "UserPromptsResponses", width: 150, filter: true },
+                            { field: "Non-permissivelyLicensedCode", columnGroupShow: "open", width: 180, filter: true },
                         ]
                     },
                     {
                         headerName: 'Features',
                         children: [
-                            { field: "SuggestionsForNewAndExistingCode", width: '160px', filter: true },
-                            { field: "Explanations", width: '140px', filter: true },
-                            { field: "IDEAutocomplete", columnGroupShow: "open", width: '175px', filter: true },
-                            { field: "IDEChat", columnGroupShow: "open", width: '110px', filter: true },
-                            { field: "IDEInlineChat", columnGroupShow: "open", width: '150px', filter: true },
+                            { field: "SuggestionsForNewAndExistingCode", width: 160, filter: true },
+                            { field: "Explanations", width: 140, filter: true },
+                            { field: "IDEAutocomplete", columnGroupShow: "open", width: 175, filter: true },
+                            { field: "IDEChat", columnGroupShow: "open", width: 110, filter: true },
+                            { field: "IDEInlineChat", columnGroupShow: "open", width: 150, filter: true },
                         ]
                     },
                     {
                         headerName: 'IDE Extensions',
                         children: [
-                            { field: "VSCode", width: '110px', filter: true },
-                            { field: "VisualStudio", width: '140px', filter: true },
-                            { field: "Rider", columnGroupShow: "open", width: '90px', filter: true },
-                            { field: "Eclipse", columnGroupShow: "open", width: '100px', filter: true },
+                            { field: "VSCode", width: 110, filter: true },
+                            { field: "VisualStudio", width: 140, filter: true },
+                            { field: "Rider", columnGroupShow: "open", width: 90, filter: true },
+                            { field: "Eclipse", columnGroupShow: "open", width: 100, filter: true },
                         ]
                     }
                 ],
